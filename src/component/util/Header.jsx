@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+const user = {
+  isAuthenticated : false
+
+}
+
 const Header = () => {
   return (
     <header>
@@ -10,7 +15,7 @@ const Header = () => {
         {/* Logo */}
         <div>
           <Link to="#">
-            <img src='/src/Image/flipkart-logo-1.png' alt="logo" width='150px' height='100px' />
+            <img src='/src/component/Image/flipkart-logo-1.png' alt="logo" width='150px' height='100px' />
           </Link>
         </div>
         
@@ -26,18 +31,33 @@ const Header = () => {
           </button>
         </div>
         
-        {/* Login */}
+           {/* Show login or user's account */}
+        <div>
+          {user.isAuthenticated ? (
+            <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
+              <i className="fa-solid fa-user p-2"></i>
+              {user.username} {/* Display the user's account name */}
+            </Link>
+          ) : (
+            <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
+              <i className="fa-solid fa-user p-2"></i>
+              Login
+            </Link>
+          )}
+        </div>
+
+        {/* Login
         <div>
           <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
           <i className="fa-solid fa-user"></i>
             Login
           </Link>
-        </div>
+        </div> */}
 
          {/* cart */}
          <div>
           <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
-          <i className="fa-solid fa-cart-shopping "></i>
+          <i className="fa-solid fa-cart-shopping p-2"></i>
             Cart
           </Link>
         </div>
@@ -45,7 +65,7 @@ const Header = () => {
         {/* Become Seller Option */}
         <div>
           <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
-          <i className="fa-solid fa-store"></i>
+          <i className="fa-solid fa-store p-2"></i>
             Become a Seller
           </Link>
         </div>
