@@ -34,15 +34,16 @@ const Header = () => {
            {/* Show login or user's account */}
         <div>
           {user.isAuthenticated ? (
-            <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
+            <Link to="/" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
               <i className="fa-solid fa-user p-2"></i>
               {user.username} {/* Display the user's account name */}
             </Link>
           ) : (
-            <Link to="#" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
+            <Link to="/login" className='text-slate-50 hover:bg-white hover:text-black px-3 py-2 rounded-md'>
               <i className="fa-solid fa-user p-2"></i>
               Login
             </Link>
+            
           )}
         </div>
 
